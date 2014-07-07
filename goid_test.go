@@ -3,11 +3,11 @@ package goid
 import "testing"
 
 func TestSimpleGenerate(t *testing.T) {
-	values := make([]byte, 0)
-	values = append(values, '0')
-	values = append(values, '1')
-	values = append(values, '2')
-	values = append(values, 'A')
+	values := make([]byte, 4)
+	values[0] = '0'
+	values[1] = '1'
+	values[2] = '2'
+	values[3] = 'A'
 
 	for i := 0; i < 4; i++ {
 		if GenerateNext(values, 0) != "0" {
