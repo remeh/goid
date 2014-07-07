@@ -7,7 +7,7 @@ package goid
 // the base is deducted from the size of the array.
 //
 // The seed is the number of already generated IDs.
-func GenerateNext(values []byte, int seed) string {
+func GenerateNext(values []byte, seed int) string {
 	if seed == 0 {
 		return "0"
 	}
@@ -19,10 +19,10 @@ func GenerateNext(values []byte, int seed) string {
 	// Guess which base we want to target
 	base := len(values)
 
-	result := make([]string, 0)
+	result := make([]byte, 0)
 
 	for i := seed; i%base > 0 || i/base > 0; i /= base {
-		result = append(result, values[i])
+		result = append(result, values[i%base])
 	}
 
 	return string(result)
