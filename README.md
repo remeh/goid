@@ -7,19 +7,19 @@ Basic package to generate pseudo-random unique IDs.
 By providing the dictionary:
 
 ```
-	values := make([]byte, 4)
-	values[0] = '0'
-	values[1] = 'A'
-	values[2] = '2'
-	values[3] = 'z'
+	dictionary := make([]byte, 4)
+	dictionary[0] = '0'
+	dictionary[1] = 'A'
+	dictionary[2] = '2'
+	dictionary[3] = 'z'
 ```
 
 You're able to generate as many IDs as you want by providing the number
 of already generated keys :
 
 ```
-	for i := 0; i < 16; i++ {
-        fmt.Println(goid.GenerateNext(i));
+	for i := 0; i < 20; i++ {
+        fmt.Println(goid.GenerateNext(dictionary, i));
     }
 ```
 
@@ -42,6 +42,17 @@ z2
 Az
 2z
 zz
+00A
+A0A
+20A
+z0A
+0AA
+AAA
+2AA
+zAA
+02A
+A2A
+...
 ```
 
 ## Roadmap
