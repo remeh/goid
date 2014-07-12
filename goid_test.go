@@ -100,8 +100,8 @@ func TestSimpleGenerate(t *testing.T) {
 		t.Fatalf("Got %s instead something which should have 12 digits", g)
 	}
 
-	g = GenerateNext(values, 0, 4);
-	if g != "0000" {
-		t.Fatalf("Should generate 0000 and not : %s", g);
+	g = GenerateNext(values, 0, 6);
+	if g != "000000" {
+		t.Fatalf("Should generate 000000 and not : %s", g);
 	}
 }

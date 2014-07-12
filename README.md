@@ -19,7 +19,7 @@ of already generated keys :
 
 ```
 	for i := 0; i < 20; i++ {
-        fmt.Println(goid.GenerateNext(dictionary, i));
+        fmt.Println(goid.GenerateNext(dictionary, i, 0));
     }
 ```
 
@@ -52,10 +52,10 @@ AAA
 zAA
 02A
 A2A
-...
 ```
+
+This algorithm is limited to generate `(2^31) - 1` different values (signed int max) due to its design. It's a design choice : it could have been easily extended by using int64 but the performance should have been impacted.
 
 ## Roadmap
 
-  - Method to generate IDs with a fixed size
   - Randomized dictionary

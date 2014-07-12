@@ -39,7 +39,6 @@ func GenerateNext(digits []byte, seed int, minDigitCount int) string {
 			seed += int(math.Pow(float64(base), float64(minDigitCount-1)))
 		}
 
-
 		for i := seed; i%base > 0 || i/base > 0; i /= base {
 			result = append(result, digits[i%base])
 		}
