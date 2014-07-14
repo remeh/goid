@@ -17,18 +17,19 @@ import (
 //
 // This method doesn't return an error but can return an empty string
 // if the given array of digits is empty.
-func GenerateNext(digits []byte, seed int, minDigitCount int) string {
+func GenerateNext(digits []byte, seed int, minDigitCount int) []byte {
 	if len(digits) == 0 {
-		return "";
+		var empty []byte
+		return empty
 	}
 
 	result := make([]byte, 0)
 
 	// Special case for the 0 
 	if seed == 0 {
-		result = append(result, '0');
+		result = append(result, '0')
 		for i := 0; i < minDigitCount-1; i++ {
-			result = append(result, '0');
+			result = append(result, '0')
 		}
 	} else {
 		// Guess which base we want to target
@@ -45,5 +46,5 @@ func GenerateNext(digits []byte, seed int, minDigitCount int) string {
 	}
 
 
-	return string(result)
+	return result
 }
